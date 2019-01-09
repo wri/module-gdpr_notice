@@ -5,6 +5,8 @@
  * Main file for the GDPR Notice.
  */
 
+drupal_add_js(drupal_get_path('module', 'gdpr_notice') . '/cookie.notice.js');
+
 /**
  * Implements hook_page_build().
  */
