@@ -15,7 +15,7 @@ function gdpr_notice_page_build(&$page) {
 
   $page['content']['#attached']['js'][] = array(
     'type' => 'internal',
-    'data' => $path_gdpr_notice/ . 'cookie.notice.js',
+    'data' => $path_gdpr_notice . '/cookie.notice.js',
   );
   
 }
