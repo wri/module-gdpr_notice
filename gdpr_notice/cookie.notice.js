@@ -19,7 +19,7 @@
     var defaults = {
         messageLocales: {
             it: 'Utilizziamo i cookie per essere sicuri che tu possa avere la migliore esperienza sul nostro sito. Se continui ad utilizzare questo sito assumiamo che tu ne sia felice.',
-            en: 'We use cookies to ensure that you have the best experience on our website. If you continue to use this site we assume that you accept this.',
+            en: 'This website uses cookies to provide you with an improved user experience. By continuing to browse this site, you consent to the use of cookies and similar technologies. Please visit our <a href="/about/privacy-policy">privacy policy</a> for further details.',
             de: 'Wir verwenden Cookies um sicherzustellen, dass Sie das beste Erlebnis auf unserer Website haben.',
             fr: 'Nous utilisons des cookies afin d\'être sûr que vous pouvez avoir la meilleure expérience sur notre site. Si vous continuez à utiliser ce site, nous supposons que vous acceptez.'
         },
