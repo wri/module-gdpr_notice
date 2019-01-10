@@ -8,3 +8,5 @@ To add the notice to a site manually, put the js file (cookie.notice.js) somewhe
 ```
 <script type="text/javscript" src="path/to/the/file/cookie.notice.js"></script>
 ```
+
+![screenshot from 2019-01-10 09-51-46](https://user-images.githubusercontent.com/1031373/50976289-999ba680-14bd-11e9-98a9-30446f0506f4.png)
