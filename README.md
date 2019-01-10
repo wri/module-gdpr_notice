@@ -1,5 +1,6 @@
 # module-gdpr_notice
 A Drupal 7 module to display a cookie notice for GDPR compliance. 
+
 Future functionality might include admin options to update text and set colors and font.
 
 # Non-Drupal Sites
