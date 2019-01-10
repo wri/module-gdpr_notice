@@ -4,28 +4,3 @@
  * @file
  * Main file for the GDPR Notice.
  */
-
-/**
- * Implements hook_init().
- */
-
-function gdpr_notice_init() {
-
-  drupal_add_js(drupal_get_path('module', 'gdpr_notice') . '/cookie.notice.min.js');
-
-}
-
-/**
- * Implements hook_page_build().
- */
-
-function gdpr_notice_page_build(&$page) {
-
-  $path_gdpr_notice = drupal_get_path('module', 'gdpr_notice');
-
-  $page['content']['#attached']['js'][] = array(
-    'type' => 'internal',
-    'data' => $path_gdpr_notice . '/cookie.notice.min.js',
-  );
-  
-}
