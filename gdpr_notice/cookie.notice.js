@@ -2,6 +2,18 @@
  * Cookie Notice JS
  * @author Alessandro Benoit
  */
+
+/* adding function to pull in vars set in module admin config */
+(function($) {
+      Drupal.behaviors.gdpr_notice = {
+        attach: function (context, settings) {
+          alert(settings.gdpr_notice.testvar);
+        }
+      };
+
+})(jQuery);
+/* end */
+
 (function () {
 
     "use strict";

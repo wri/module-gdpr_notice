@@ -4,3 +4,35 @@
  * @file
  * Main file for the GDPR Notice.
  */
+
+// settings vars to inject into js file
+$testVariable = 'theDumbVar';
+drupal_add_js(array('gdpr_notice' => array('testvar' => $testVariable)), array('type' => 'setting'));
+drupal_add_js(drupal_get_path('module', 'gdpr_notice') . '/cookie.notice.js');
+
+
+/**
+ * Function gdpr_notice_settings.
+ */
+function gdpr_notice_message($form, &$form_state) {
+
+  $form['gdpr_notice_message'] = array(
+    '#title' => t('Text to appear in the GDPR notice:'),
+    '#type' => 'textfield',
+    '#description' => t('A brief sentence notifying site visitors that your site sets cookies'),
+    '#default_value' => variable_get('gdpr_notice_message', ''),
+    '#size' => 130,
+    '#resizable' => FALSE,
+  );
+
+  $form['gdpr_notice_link'] = array(
+    '#title' => t('Link to the site privacy page:'),
+    '#type' => 'textfield',
+    '#description' => t('The full url for the site\'s privacy page'),
+    '#default_value' => variable_get('gdpr_notice_link', ''),
+    '#size' => 80,
+    '#resizable' => FALSE,
+  );
+
+  return system_settings_form($form);
+}
