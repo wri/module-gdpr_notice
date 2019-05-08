@@ -10,6 +10,23 @@ $testVariable = 'theDumbVar';
 drupal_add_js(array('gdpr_notice' => array('testvar' => $testVariable)), array('type' => 'setting'));
 drupal_add_js(drupal_get_path('module', 'gdpr_notice') . '/cookie.notice.js');
 
+/**
+ * Implements hook_menu().
+ */
+function gdpr_notice_menu() {
+
+  $items = array();
+
+  $items['admin/config/user-interface/gdpr_notice'] = array(
+    'title' => 'GDPR Notice',
+    'description' => 'Configuration for GDPR notice',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('gdpr_notice_settings'),
+    'access arguments' => array('administer site configuration'),
+  );
+
+  return $items;
+}
 
 /**
  * Function gdpr_notice_settings.
