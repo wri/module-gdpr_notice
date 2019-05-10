@@ -3,22 +3,29 @@
  * @author Alessandro Benoit
  */
 
-/* adding function to pull in vars set in module admin config */
-(function($) {
-      Drupal.behaviors.gdpr_notice = {
-        attach: function (context, settings) {
-          alert(settings.gdpr_notice.testvar);
-        }
-      };
+/* function to pull in vars set in module admin config */
 
-})(jQuery);
-/* end */
+(function($, Drupal) {
+  Drupal.behaviors.gdpr_notice = {
+    attach: function (context, settings) {
+      window.gdpr_message = Drupal.settings.gdpr_notice.gdpr_message;
+      window.gdpr_link = Drupal.settings.gdpr_notice.gdpr_link;
+    }
+  };
+})(jQuery, Drupal);
 
-(function () {
+
+// Main functionality wrapped in timeout to let the Drupal behavior complete
+
+function timeFunction() {
+
+setTimeout(function () {
+
+  (function () {
 
     "use strict";
 
-    /**
+    /**	    
      * Store current instance
      */
     var instance,
@@ -28,10 +35,14 @@
      * Defaults values
      * @type object
      */
+
+    //var testvar4 = testvar3;
+
     var defaults = {
         messageLocales: {
-            en: 'This website uses cookies to provide you with an improved user experience. By continuing to browse this site, you consent to the use of cookies and similar technologies. Please visit our <a href="/about/privacy-policy">privacy policy</a> for further details.',
-            fr: 'Nous utilisons des cookies afin d\'être sûrs que vous pouvez avoir la meilleure expérience possible sur notre site. En poursuivant votre navigation, vous acceptez l\'utilisation de cookies et technologies similaires. Visitez notre <a href="/about/privacy-policy">politique de confidentialité</a> pour plus d\'informations.'
+            en: gdpr_message + ' Please visit our <a href="' + gdpr_link + '">privacy policy</a> for further details.',
+            fr: gdpr_message + ' Please visit our <a href="' + gdpr_link + '">privacy policy</a> for further details.'
+	    //fr: 'Nous utilisons des cookies afin d\'être sûrs que vous pouvez avoir la meilleure expérience possible sur notre site. En poursuivant votre navigation, vous acceptez l\'utilisation de cookies et technologies similaires. Visitez notre <a href="/about/privacy-policy">politique de confidentialité</a> pour plus d\'informations.'
 	},
 
         cookieNoticePosition: 'bottom',
@@ -65,22 +76,24 @@
      * Initialize cookie notice on DOMContentLoaded
      * if not already initialized with alt params
      */
-    document.addEventListener('DOMContentLoaded', function () {
-        if (!instance) {
-            new cookieNoticeJS();
-        }
-    });
+
+    //document.addEventListener('DOMContentLoaded', function () {
+    //    if (!instance) {
+    //        new cookieNoticeJS();
+    //    }
+    //});
 
     /**
      * Constructor
      * @constructor
      */
+
     window.cookieNoticeJS = function () {
 
         // If an instance is already set stop here
-        if (instance !== undefined) {
-            return;
-        }
+        //if (instance !== undefined) {
+        //    return;
+        //}
 
         // Set current instance
         instance = this;
@@ -347,4 +360,16 @@
     };
     /* end-test-code */
 
+
+  //force test
+  new cookieNoticeJS();
+
 }());
+
+}, 500);
+
+}
+
+timeFunction();
+
+

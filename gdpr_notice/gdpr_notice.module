@@ -5,14 +5,21 @@
  * Main file for the GDPR Notice.
  */
 
-// settings vars to inject into js file
-$testVariable = 'theDumbVar';
-drupal_add_js(array('gdpr_notice' => array('testvar' => $testVariable)), array('type' => 'setting'));
-drupal_add_js(drupal_get_path('module', 'gdpr_notice') . '/cookie.notice.js');
+// settings vars to make available as js
+
+function gdpr_notice_preprocess_html(&$variables) {
+
+  $main_message = variable_get('gdpr_notice_message', '(go to /admin/config/user-interface/gdpr_notice to set this text)');
+  $main_link = variable_get('gdpr_notice_link', '/about/privacy-policy');
+
+  drupal_add_js(array('gdpr_notice' => array('gdpr_message' => $main_message)), array('type' => 'setting'));
+  drupal_add_js(array('gdpr_notice' => array('gdpr_link' => $main_link)), array('type' => 'setting'));
+}
 
 /**
  * Implements hook_menu().
  */
+
 function gdpr_notice_menu() {
 
   $items = array();
@@ -31,7 +38,8 @@ function gdpr_notice_menu() {
 /**
  * Function gdpr_notice_settings.
  */
-function gdpr_notice_message($form, &$form_state) {
+
+function gdpr_notice_settings($form, &$form_state) {
 
   $form['gdpr_notice_message'] = array(
     '#title' => t('Text to appear in the GDPR notice:'),
@@ -39,15 +47,17 @@ function gdpr_notice_message($form, &$form_state) {
     '#description' => t('A brief sentence notifying site visitors that your site sets cookies'),
     '#default_value' => variable_get('gdpr_notice_message', ''),
     '#size' => 130,
+    '#maxlength' => 260,
     '#resizable' => FALSE,
   );
 
   $form['gdpr_notice_link'] = array(
     '#title' => t('Link to the site privacy page:'),
     '#type' => 'textfield',
-    '#description' => t('The full url for the site\'s privacy page'),
-    '#default_value' => variable_get('gdpr_notice_link', ''),
+    '#description' => t('The path to the site\'s privacy page. Use a starting slash, e.g. "/about/privacy-policy". You can use a full path if pointing to another site.'),
+    '#default_value' => variable_get('gdpr_notice_link', '/about/privacy-policy'),
     '#size' => 80,
+    '#maxlength' => 130,
     '#resizable' => FALSE,
   );
 
