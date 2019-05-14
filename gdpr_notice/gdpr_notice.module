@@ -9,7 +9,7 @@
 
 function gdpr_notice_preprocess_html(&$variables) {
 
-  $main_message = variable_get('gdpr_notice_message', '(go to /admin/config/user-interface/gdpr_notice to set this text)');
+  $main_message = variable_get('gdpr_notice_message', 'This website uses cookies to provide you with an improved user experience. By continuing to browse this site, you consent to the use of cookies and similar technologies.');
   $main_link = variable_get('gdpr_notice_link', '/about/privacy-policy');
 
   drupal_add_js(array('gdpr_notice' => array('gdpr_message' => $main_message)), array('type' => 'setting'));
