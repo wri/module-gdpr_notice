@@ -10,6 +10,8 @@
     attach: function (context, settings) {
       window.gdpr_message = Drupal.settings.gdpr_notice.gdpr_message;
       window.gdpr_link = Drupal.settings.gdpr_notice.gdpr_link;
+      window.gdpr_link_text = Drupal.settings.gdpr_notice.gdpr_link_text;
+      window.gdpr_button_text = Drupal.settings.gdpr_notice.gdpr_button_text;
     }
   };
 })(jQuery, Drupal);
@@ -40,9 +42,8 @@ setTimeout(function () {
 
     var defaults = {
         messageLocales: {
-            en: gdpr_message + ' Please visit our <a href="' + gdpr_link + '">privacy policy</a> for further details.',
-            fr: gdpr_message + ' Please visit our <a href="' + gdpr_link + '">privacy policy</a> for further details.'
-	    //fr: 'Nous utilisons des cookies afin d\'être sûrs que vous pouvez avoir la meilleure expérience possible sur notre site. En poursuivant votre navigation, vous acceptez l\'utilisation de cookies et technologies similaires. Visitez notre <a href="/about/privacy-policy">politique de confidentialité</a> pour plus d\'informations.'
+            en: gdpr_message + ' <a href="' + gdpr_link + '">' + gdpr_link_text + '</a>.',
+            fr: gdpr_message + ' <a href="' + gdpr_link + '">' + gdpr_link_text + '</a>.'
 	},
 
         cookieNoticePosition: 'bottom',
@@ -57,8 +58,8 @@ setTimeout(function () {
         },
 
         buttonLocales: {
-            en: 'OK',
-	    fr: 'Accepter'
+            en: gdpr_button_text,
+	    fr: gdpr_button_text
         },
 
         expiresIn: 30,

@@ -10,10 +10,14 @@
 function gdpr_notice_preprocess_html(&$variables) {
 
   $main_message = variable_get('gdpr_notice_message', 'This website uses cookies to provide you with an improved user experience. By continuing to browse this site, you consent to the use of cookies and similar technologies.');
+  $main_link_text = variable_get('gdpr_notice_link_text', 'privacy policy');
   $main_link = variable_get('gdpr_notice_link', '/about/privacy-policy');
+  $main_button_text = variable_get('gdpr_notice_button_text', 'OK');  
 
   drupal_add_js(array('gdpr_notice' => array('gdpr_message' => $main_message)), array('type' => 'setting'));
   drupal_add_js(array('gdpr_notice' => array('gdpr_link' => $main_link)), array('type' => 'setting'));
+  drupal_add_js(array('gdpr_notice' => array('gdpr_link_text' => $main_link_text)), array('type' => 'setting'));
+    drupal_add_js(array('gdpr_notice' => array('gdpr_button_text' => $main_button_text)), array('type' => 'setting'));
 }
 
 /**
@@ -58,6 +62,26 @@ function gdpr_notice_settings($form, &$form_state) {
     '#default_value' => variable_get('gdpr_notice_link', '/about/privacy-policy'),
     '#size' => 80,
     '#maxlength' => 130,
+    '#resizable' => FALSE,
+  );
+
+  $form['gdpr_notice_link_text'] = array(
+    '#title' => t('Text for the link to the site privacy page:'),
+    '#type' => 'textfield',
+    '#description' => t('This is the text that will appear for the link to the privacy policy'),
+    '#default_value' => variable_get('gdpr_notice_link_text', 'privacy policy'),
+    '#size' => 30,
+    '#maxlength' => 60,
+    '#resizable' => FALSE,
+  );
+
+  $form['gdpr_notice_button_text'] = array(
+    '#title' => t('Text for the acceptance button:'),
+    '#type' => 'textfield',
+    '#description' => t('This is the text that will appear on the button to accept'),
+    '#default_value' => variable_get('gdpr_notice_button_text', 'OK'),
+    '#size' => 10,
+    '#maxlength' => 20,
     '#resizable' => FALSE,
   );
 
