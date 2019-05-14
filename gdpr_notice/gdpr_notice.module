@@ -9,7 +9,7 @@
 
 function gdpr_notice_preprocess_html(&$variables) {
 
-  $main_message = variable_get('gdpr_notice_message', 'This website uses cookies to provide you with an improved user experience. By continuing to browse this site, you consent to the use of cookies and similar technologies.');
+  $main_message = variable_get('gdpr_notice_message', 'This website uses cookies to provide you with an improved user experience. By continuing to browse this site, you consent to the use of cookies and similar technologies. For further details please visit our');
   $main_link_text = variable_get('gdpr_notice_link_text', 'privacy policy');
   $main_link = variable_get('gdpr_notice_link', '/about/privacy-policy');
   $main_button_text = variable_get('gdpr_notice_button_text', 'OK');  
@@ -49,8 +49,8 @@ function gdpr_notice_settings($form, &$form_state) {
     '#title' => t('Text to appear in the GDPR notice:'),
     '#type' => 'textfield',
     '#description' => t('A brief sentence notifying site visitors that your site sets cookies'),
-    '#default_value' => variable_get('gdpr_notice_message', ''),
-    '#size' => 130,
+    '#default_value' => variable_get('gdpr_notice_message', 'This website uses cookies to provide you with an improved user experience. By continuing to browse this site, you consent to the use of cookies and similar technologies. For further details please visit our'),
+    '#size' => 150,
     '#maxlength' => 260,
     '#resizable' => FALSE,
   );
