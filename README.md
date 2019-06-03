@@ -13,4 +13,6 @@ To add the notice to a site manually, put the original unmodified js file from h
 *be sure to grab the unmodified script from https://github.com/AOEpeople/cookie-notice - the version in this repo has been modified to work with the Drupal module*
 
 
+# screenshot
+
 ![screenshot from 2019-01-10 09-51-46](https://user-images.githubusercontent.com/1031373/50976289-999ba680-14bd-11e9-98a9-30446f0506f4.png)
