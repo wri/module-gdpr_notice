@@ -204,7 +204,6 @@ setTimeout(function () {
         notice.setAttribute('data-test-section', 'cookie-notice');
         notice.setAttribute('data-test-transitioning', 'false');
 
-
         noticeStyle.position = 'fixed';
 
         if (position === 'top') {
@@ -218,7 +217,6 @@ setTimeout(function () {
             noticeStyle.bottom = '0';
         }
 
-
         noticeStyle.left = '0';
         noticeStyle.right = '0';
         noticeStyle.background = bgColor;
@@ -229,7 +227,6 @@ setTimeout(function () {
         noticeStyle["font-size"] = fontSize + 'em';
         noticeStyle["line-height"] = lineHeight + 'em';
         noticeStyle["font-family"] = noticeFont;
-
 
         return notice;
     }
@@ -254,7 +251,6 @@ setTimeout(function () {
         dismissButton.className = 'confirm';
 
         dismissButton.setAttribute('data-test-action', 'dismiss-cookie-notice');
-
 
         // Dismiss button style
         dismissButtonStyle.background = buttonColor;
