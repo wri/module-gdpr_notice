@@ -360,7 +360,7 @@ setTimeout(function () {
 
 
   //force test
-  new cookieNoticeJS();
+  //new cookieNoticeJS();
 
 }());
 
