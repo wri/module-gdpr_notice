@@ -1,7 +1,7 @@
 # module-gdpr_notice
 A Drupal 7 module to display a cookie notice for GDPR compliance. Uses js from https://github.com/AOEpeople/cookie-notice with some customizations. 
 
-Default text and link destination can be customized on the Admin configuration page.
+The notice can be enabled/disabled, and the default text and link destination can be customized on the Admin configuration page. 
 
 # Non-Drupal Sites
 To add the notice to a site manually, put the original unmodified js file from https://github.com/AOEpeople/cookie-notice (cookie.notice.js) somewhere accessible and then include the following in the ```<head>``` section of your pages:
