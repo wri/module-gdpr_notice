@@ -11,4 +11,7 @@
 function gdpr_notice_uninstall() {
   variable_del('gdpr_notice_message');
   variable_del('gdpr_notice_link');
+  variable_del('gdpr_notice_link_text');
+  variable_del('gdpr_notice_button_text');
+  variable_del('gdpr_notice_isactive');
 }
