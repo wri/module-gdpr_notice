@@ -1,6 +1,6 @@
 /**
  * Cookie Notice JS
- * @author Alessandro Benoit
+ * @author Alessandro Benoit (modified by WRI web team)
  */
 
 /* function to pull in vars set in module admin config */
@@ -12,6 +12,7 @@
       window.gdpr_link = Drupal.settings.gdpr_notice.gdpr_link;
       window.gdpr_link_text = Drupal.settings.gdpr_notice.gdpr_link_text;
       window.gdpr_button_text = Drupal.settings.gdpr_notice.gdpr_button_text;
+      window.gdpr_isactive = Drupal.settings.gdpr_notice.gdpr_isactive;
     }
   };
 })(jQuery, Drupal);

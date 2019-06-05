@@ -1,6 +1,6 @@
 name = GDPR Notice
 description = Generates a cookie notice for GDPR compliance. Repo https://github.com/wri/module-gdpr_notice. Uses modified js from https://github.com/AOEpeople/cookie-notice.
 core = 7.x
-version = "7.x-1.0-rc1"
+version = "7.x-1.1-rc1"
 package = WRI
 scripts[] = cookie.notice.js
