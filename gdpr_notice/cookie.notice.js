@@ -358,13 +358,13 @@ setTimeout(function () {
     };
     /* end-test-code */
 
-
-  //force test
-  //new cookieNoticeJS();
+   if (gdpr_isactive) { 	  
+     new cookieNoticeJS();
+   }
 
 }());
 
-}, 500);
+}, 300);
 
 }
 

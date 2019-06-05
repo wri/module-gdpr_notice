@@ -50,7 +50,7 @@ function gdpr_notice_settings($form, &$form_state) {
   $form['gdpr_notice_isactive'] = array(
     '#title' => t('Enable the GDPR notice'),
     '#type' => 'checkbox',
-    '#description' => t('Check this box to turn on the GDPR message'),
+    '#description' => t('Check this box to turn on the GDPR message (NOTE: you\'ll need to clear the site cache before this will take effect)'),
     '#default_value' => variable_get('gdpr_notice_isactive', false),
   );
 
